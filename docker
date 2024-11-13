@@ -1,0 +1,14 @@
+# Gunakan image dasar Python
+FROM python:3.9
+
+# Install dependencies
+RUN pip install pycoingecko pandas talib-binary python-telegram-bot schedule
+
+# Salin skrip ke container
+COPY trading_script.py /app/trading_script.py
+
+# Set working directory
+WORKDIR /app
+
+# Jalankan skrip saat container dimulai
+CMD ["python", "trading_script.py"]
